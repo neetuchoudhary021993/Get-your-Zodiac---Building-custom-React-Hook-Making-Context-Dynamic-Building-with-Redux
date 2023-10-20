@@ -2,13 +2,10 @@
 
 // store.js
 
-import { configureStore } from '@reduxjs/toolkit';
-import zodiac from './reducers';
+import {createStore } from '@reduxjs/toolkit';
+import rootReducer from './reducers';
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = configureStore({
-  reducer: {
-    zodiac: ZodiacReducer,
-  },
-});
+const store = createStore(rootReducer, composeWithDevTools())
 
 export default store;
